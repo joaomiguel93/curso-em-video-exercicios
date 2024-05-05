@@ -6,10 +6,10 @@ nota1 = float(input('Primeira nota: '))
 nota2 = float(input('Segunda nota: '))
 media = (nota1 + nota2) / 2
 print(f'Com notas {nota1} e {nota2}, a média é {media}')
-if media <= 5:
-    print('O aluno está REPROVADO')
-elif 5.1 <= media <= 6.9:
-    print('O aluno está em RECUPERAÇÃO')
-elif media <= 7:
-    print('O aluno está APROVADO')
+if media <= 50:
+    print(f'O aluno está \033[1;31mREPROVADO\033[m')
+elif 50.1 <= media <= 60.9:
+    print(f'O aluno está em \033[1;33mRECUPERAÇÃO\033[m')
+elif media <= 70:
+    print(f'O aluno está \033[1;32mAPROVADO\033[m')
 print('>> FIM DO PROGRAMA <<')
