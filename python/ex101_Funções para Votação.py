@@ -2,25 +2,21 @@
 como parâmetro o ano de nascimento de uma pessoa, retornando um
 valor literal indicando se uma pessoa tem voto NEGADO, OPCIONAL
 e OBRIGATÓRIO nas eleições."""
-from datetime import date
-
-
-# Função para calcular a idade
-def calcIdade():
-    return date.today().year - nascimento
 
 
 # Função voto
-def voto():
-    print(f'Com {calcIdade()} anos: ', end='')
-    if calcIdade() > 18 and calcIdade() < 60:
-        return 'VOTO OBRIGATÓRIO'
-    elif calcIdade() >= 60:
-        return 'VOTO OPCIONAL'
+def voto(nascimento):
+    from datetime import date  # biblioteca importada dentro da função
+    atual = date.today().year  # calculo da idade
+    idade = atual - nascimento
+    if idade < 16:
+        return f'Com {idade} anos: VOTO NEGADO'
+    elif 16 <= idade < 18 or idade > 65:
+        return f'Com {idade} anos: VOTO OPCIONAL'
     else:
-        return 'NÃO VOTA'
+        return f'Com {idade} anos: VOTO OBRIGATÓRIO'
 
 
-
+# Programa principal: Input da data de nascimento
 nascimento = int(input('Em que ano você nasceu? '))
-print(voto())
+print(voto(nascimento))
