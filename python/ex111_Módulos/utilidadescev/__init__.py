@@ -1,0 +1,1 @@
+from ex111_Módulos.utilidadescev import dado, moeda
